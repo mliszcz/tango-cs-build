@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# This script prepares debian packages with compiled binaries.
+# This script prepares compiled artifacts for packaging.
 
 BUILD_DIR=build
 TARGET_DIR=$BUILD_DIR/target
-PKG_DIR=$BUILD_DIR/pkg-deb
+PKG_DIR=$BUILD_DIR/packages
 
 PREFIX=usr/local
 
@@ -21,7 +21,7 @@ mkdir -p $PKG_DIR/tango9-test/$PREFIX/bin
 
 cp -r $TARGET_DIR/lib $PKG_DIR/libtango9/$PREFIX/
 mv $PKG_DIR/libtango9/$PREFIX/lib/pkgconfig $PKG_DIR/libtango9-dev/$PREFIX/lib/
-cp -r $TARGET_DIR/include packages/libtango9-dev/$PREFIX/
+cp -r $TARGET_DIR/include $PKG_DIR/libtango9-dev/$PREFIX/
 
 cp $TARGET_DIR/bin/DataBaseds $PKG_DIR/tango9-db/$PREFIX/bin/
 cp $TARGET_DIR/bin/Starter $PKG_DIR/tango9-starter/$PREFIX/bin/
