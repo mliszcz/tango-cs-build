@@ -1,0 +1,8 @@
+Package: tango9-accesscontrol
+Version: 9.2.2
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Michal Liszcz <liszcz.michal@gmail.com>
+Description: Precompiled packages for TANGO Controls.
+ https://sourceforge.net/projects/tango-cs/
