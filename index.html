@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unofficial Tango Controls package repository</title>
+  </head>
+  <body>
+    <article>
+
+      <header>
+        <h1>Unofficial Tango Controls package repository</h1>
+        <p>
+          This repository contains compiled packages for TANGO Controls:
+          <a href="https://sourceforge.net/projects/tango-cs/">https://sourceforge.net/projects/tango-cs/</a>
+        </p>
+      </header>
+
+      <section>
+        <h2>Debian packages</h2>
+        <p>
+          The packages listed below have no dependencies declared. Make sure
+          you have following packages in your system before proceeding:
+          libmysqlclient20, libomniorb4-1, libzmq5, libcos4-1.
+        <p>
+        <p>
+          The only supported system is Ubuntu 16.04!
+        </p>
+        <ul id="list-deb-packages">
+        </ul>
+      </section>
+
+      <section>
+        <h2>APT repository</h2>
+        <p>Configure APT as shown below:</p>
+<pre>
+<code>
+echo "deb [trusted=yes] http://mliszcz.github.io/tango-cs-build/repository/ apt/" >> /etc/apt/sources.list
+apt-get update
+</code>
+</pre>
+        <p>
+          Following packages may be installed with <code>apt-get install</code>:
+        </p>
+        <ul id="list-apt-packages">
+        </ul>
+      </section>
+
+      <section>
+        <h2>Java tools</h2>
+        <p>Following packages are available:</p>
+        <ul id="list-jar-tools">
+        </ul>
+        <p>
+          Note that some of them have no proper manifest, thus you need to
+          know which class to run.
+        </p>
+      </section>
+
+      <footer>
+        This repository is maintained by
+        <a href="https://github.com/mliszcz">mliszcz</a>.
+      </footer>
+
+    </article>
+
+    <script type="text/javascript">
+    (function (window) {
+      'use strict'
+
+      var document = window.document;
+
+      function initialize () {
+
+        var debList = document.getElementById('list-deb-packages');
+        var aptList = document.getElementById('list-apt-packages');
+        var jarList = document.getElementById('list-jar-tools');
+
+        var debPackages = {
+          'libtango9': 'libtango9_9.2.2_amd64.deb',
+          'libtango9-dev': 'libtango9-dev_9.2.2_amd64.deb',
+          'tango9-accesscontrol': 'tango9-accesscontrol_9.2.2_amd64.deb',
+          'tango9-db': 'tango9-db_9.2.2_amd64.deb',
+          'tango9-starter': 'tango9-starter_9.2.2_amd64.deb',
+          'tango9-test': 'tango9-test_9.2.2_amd64.deb',
+          'tango9-tools': 'tango9-tools_9.2.2_amd64.deb'
+        };
+
+        var jarPackages = [
+          'Astor-6.7.0.jar',
+          'ATKCore-9.1.13.jar',
+          'atkpanel-5.4.jar',
+          'AtkTuning-2.8.jar',
+          'ATKWidget-9.1.13.jar',
+          'DeviceTree-1.9.6.jar',
+          'Jive-6.9.jar',
+          'JTango-9.0.7.jar',
+          'log4j-1.2.15.jar',
+          'LogViewer-2.0.1.jar',
+          'org.tango.pogo-9.2.4.jar',
+          'tool_panels-3.2.jar'
+        ];
+
+
+        Object.keys(debPackages).forEach(function (key) {
+          var debListItem = document.createElement('li');
+          var aptListItem = document.createElement('li');
+          var debAnchor = document.createElement('a');
+          var aptCode = document.createElement('code');
+          debAnchor.href = 'repository/apt/' + debPackages[key];
+          debAnchor.innerText = debPackages[key];
+          debListItem.appendChild(debAnchor);
+          aptCode.innerText = key;
+          aptListItem.appendChild(aptCode);
+          debList.appendChild(debListItem);
+          aptList.appendChild(aptListItem);
+        });
+
+        jarPackages.forEach(function (key) {
+          var jarListItem = document.createElement('li');
+          var jarAnchor = document.createElement('a');
+          jarAnchor.href = 'repository/jar/' + key
+          jarAnchor.innerText = key;
+          jarListItem.appendChild(jarAnchor);
+          jarList.appendChild(jarListItem);
+        });
+
+      };
+
+      window.addEventListener('DOMContentLoaded', initialize);
+
+    })(window);
+    </script>
+  </body>
+</html>
