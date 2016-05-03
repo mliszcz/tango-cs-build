@@ -11,27 +11,11 @@ scripts have to be modified:
 
 ## Precompiled packages
 
-Packages are located in the repository/apt directory in this repo. You may
-download and install these packages using `dpkg` or `apt`.
+Packages are located in the `gh-pages` branch in the repository/apt directory
+You may download and install these packages using `dpkg` or `apt`. Detailed
+instructions are provided in the link below.
 
-**Note that the packages have no dependencies declared!** Make sure you have
-all the dependencies listed at the end of this document.
-
-### Using `dpkg`
-
-```bash
-$ wget https://rawgit.com/mliszcz/tango-cs-build/master/repository/apt/tango9-starter_9.2.2_amd64.deb
-$ dpkg -i tango9-starter_9.2.2_amd64.deb
-```
-
-### Using `apt`
-
-```bash
-$ sudo apt-get install apt-transport-https
-$ sudo echo "deb [trusted=yes] https://rawgit.com/mliszcz/tango-cs-build/master/repository/ apt/" >> /etc/apt/sources.list
-$ sudo apt-get update
-$ sudo apt-get install tango9-starter
-```
+[Visit repository page.](https://mliszcz.github.io/tango-cs-build)
 
 ## Required dependecies
 
